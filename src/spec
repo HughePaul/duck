@@ -1,0 +1,115 @@
+
+
+1) look into case select/switch
+2) apparatus for piping error messages elsewhere
+3) wildcard matching
+4) net connection functions
+5) hooks for triguring stuff (using wild card stuff prolly)
+
+################################################
+
+Operators
+
+  &&   logical or bit AND
+  &    logical or bit AND
+  and  logical or bit AND
+
+  |    logical or bit OR
+  ||   logical or bit OR
+  or   logical or bit OR
+
+  !    logical or bit NOT
+  not  logical or bit NOT
+
+  =    equal to
+  ==   equal to (case sensitive)
+
+  >=   greater than or equal to
+  =>   greater than or equal to
+
+  =<   less than or equal to
+  <=   less than or equal to
+
+  <>   not equal to
+  !=   not equal to
+
+  *    multiply
+  /    divide
+  +    add
+  -    subtract
+  \    integer divide
+  ^    power
+  %    remainder
+
+  ++   increment
+  --   decrement
+
+  +=   increment by
+  -=   increment by
+  *=   multiply by
+  /=   divide by
+
+Other symbols
+
+  :=   assignment
+
+  $    value of variable
+  ?    address of variable
+  @    value pointed to by variable
+  #    length of array variable
+
+  ,    seperation of array values
+
+  (    open parenthesis
+  )    close     "
+
+  ;    end statement
+
+  {    start block
+  }    end block
+
+  [    container for index of array expression
+  ]
+  ~   array range indicator (for use in container)
+
+
+Working with arrays and singles (numbers, pointers or strings)
+
+
+  RHS:
+ -- The result of calling     ->   Gives
+
+    single [ index ]          ->   single
+    single [ start ~ end ]   ->   single
+    array [ index ]           ->   single
+    array [ start ~ end ]    ->   array
+    ( single , single )       ->   array
+
+  LHS:
+ -- These can take a single or double at their RHS
+
+    single
+    array
+    single [ start ~ end ]   (only valid for strings, ignored for other)
+    single [ index ]         (only valid for strings, ignored for other)
+    array [ start ~ end ]
+    ( single , single )
+
+ -- This short form     ->  This long form  ( s=single, a=array )
+
+          Xs += Ys      ->     Xs := Xs + Ys
+          Xs -= Ys      ->     Xs := Xs - Ys
+          Xs += Ya      ->     Xa := Xs + Ya
+          Xs -= Ya      ->     Xa := Ya
+
+          Xa += Ys      ->     Xa := Xa + Ys
+          Xa -= Ys      ->     Xs := Ys
+          Xa += Ya      ->     Xa := Xa + Ya
+          Xa -= Ya      ->     Xa := Ya
+
+ -- This will only word for number singles
+
+          X ++          ->     X := X + 1 
+          X --          ->     X := X - 1
+
+
